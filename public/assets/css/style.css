@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  padding: 30px;
+  text-align: center;
+}
+
+.sim-container {
+  max-width: 500px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+input[type=range] {
+  width: 100%;
+}
+
+#bulb {
+  width: 100px;
+  margin-top: 20px;
+  transition: filter 0.3s;
+}
