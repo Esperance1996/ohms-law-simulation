@@ -23,4 +23,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT || 21 }}
           server-dir: ${{ secrets.FTP_TARGET_DIR }}
-          local-dir: ./public
+          local-dir: ./
