@@ -2,7 +2,7 @@ name: 🚀 Deploy via SFTP – Ohm's Law Simulation
 
 on:
   push:
-    branches: [ main ]  # Trigger deploy on push to main
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -15,11 +15,11 @@ jobs:
       - name: 📤 SFTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ secrets.SFTP_HOST }}           # e.g., 197.243.23.6
-          username: ${{ secrets.SFTP_USERNAME }}     # your hosting SFTP username
-          password: ${{ secrets.SFTP_PASSWORD }}     # your SFTP password
-          port: 22                                   # 🔐 SFTP port
-          protocol: sftp                             # 🔐 use secure SFTP
-          local-dir: ./                              # all files from repo root
-          server-dir: ${{ secrets.SFTP_TARGET_DIR }} # e.g., /home/username/public_html/
-          dangerous-clean-slate: false               # keep existing server files
+          server: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: 22
+          protocol: sftp
+          local-dir: ./
+          server-dir: ${{ secrets.SFTP_TARGET_DIR }}
+          dangerous-clean-slate: false
