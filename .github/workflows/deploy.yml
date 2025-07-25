@@ -2,25 +2,28 @@ name: 🚀 Deploy Ohm's Law Simulation
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main ]  # Trigger deployment when pushing to the main branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: 📥 Checkout code
         uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: npm install
+      - name: 📦 Install dependencies (optional, if needed)
+        run: npm install || echo "No dependencies to install"
 
-      - name: FTP Deploy
+      - name: 📤 FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT || 21 }}
-          server-dir: ${{ secrets.FTP_TARGET_DIR }}
-          local-dir: ./
+          server: ${{ secrets.FTP_HOST }}          
+          username: ${{ secrets.FTP_USERNAME }}    
+          password: ${{ secrets.FTP_PASSWORD }}    
+          port: ${{ secrets.FTP_PORT || 21 }}      
+          protocol: ftp                            
+          passive: true                            
+          server-dir: ${{ secrets.FTP_TARGET_DIR }}  
+          local-dir: ./                            
+          dangerous-clean-slate: false            
